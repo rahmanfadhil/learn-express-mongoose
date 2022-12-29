@@ -1,10 +1,10 @@
-import * as express from 'express';
-import messageValidation from '../validation/message';
-import { createmessage, deletemessage, wholemessage} from "../controller/message"
-const router = express.Router();
+// import * as express from 'express';
+// import messageValidation from '../validation/message';
+// import {createmessage, allmessage} from "../controller/message"
+// const router = express.Router();
 
-router.get("/messages",wholemessage );
-router.post("/messages/:id",messageValidation, createmessage);
-router.delete("/messages/:id", deletemessage);
+// router.get("/messages",allmessage );
+// router.post("/messages/:id",messageValidation, createmessage);
 
-export default router;
+
+// export default router;

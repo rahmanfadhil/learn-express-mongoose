@@ -1,3 +1,4 @@
+import blog from "../models/blog";
 import comment from "../models/comment"
 
 
@@ -6,9 +7,14 @@ import comment from "../models/comment"
       
       comment:req.body.comment,
       email:req.body.email,
-      blogId:req.params.id,
+      blogId:req.body.blogId,
   });
   await comments.save();
+  const savedBlog = await blog.findById(req.body.blogId);
+  const blogComments = savedBlog.comments || [];
+  blogComments.push(comments._id);
+  savedBlog.set({comments: blogComments});
+  await savedBlog.save();
   res.send(comments);
 }
 

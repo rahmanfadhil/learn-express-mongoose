@@ -29,8 +29,6 @@ router.get("/blogs/:id", oneblog);
 router.patch("/blogs/:id",updateblog );
 
 router.delete("/blogs/:id", deleteblog);
-// router.post("blogs/:id/comments",getWholeComment )
 
 
-//module.exports = router;
 export default router;

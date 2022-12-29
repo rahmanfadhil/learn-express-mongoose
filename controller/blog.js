@@ -2,11 +2,15 @@ import blog from "../models/blog"
 
 export async function oneblog  (req, res){
     try {
-      const oneblog = await blog.findOne({ _id: req.params.id });
+      const oneblog = await blog.findOne({ _id: req.params.id }).populate('comments');
+      if (!oneblog) {
+        res.status(404);
+        res.send({ error: "blog doesn't exist!" });
+      }
       res.send(oneblog);
-    } catch {
-      res.status(404);
-      res.send({ error: "blog doesn't exist!" });
+    } catch(error) {
+      res.status(500);
+      res.send({ error: error.message });
     }
   }
 

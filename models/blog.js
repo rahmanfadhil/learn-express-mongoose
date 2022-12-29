@@ -6,7 +6,7 @@ const blogschema = Schema({
   content: String,
   image: Object,
   like:Array,
-  comment:Array,
+  comments:[{type:Schema.Types.ObjectId, ref:'comment'}],
 });
 
-export default model("blog", blogschema);
+export default model("Blog", blogschema);
