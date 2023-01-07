@@ -1,11 +1,11 @@
-// import { Schema, model } from "mongoose";
+import { Schema, model } from "mongoose";
 
 
-// const schema = Schema({
+const schema = Schema({
 
-//   message: String,
-//   email:String,
+  message: String,
+  email:String,
 
-// });
+});
 
-// export default model("message", schema);
+export default model("message", schema);

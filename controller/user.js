@@ -28,12 +28,18 @@ export async function oneuser  (req, res){
 export async function deleteuser  (req, res)  {
     try {
      const va= await user.deleteOne({ _id: req.params.id });
-      res.status(204).send();
-      res.json(va)
-    } catch {
+     if(!user){
       res.status(404);
       res.send({ error: "user doesn't exist!" });
+     }
+      res.status(204).send();
+      res.json(va)
+    } catch(error) {
+      res.status(500);
+      res.send({ error: error.message });
     }
+     
+    
   }
 
   export async function updateuser (req, res) {

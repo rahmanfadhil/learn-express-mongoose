@@ -1,5 +1,5 @@
 import * as express from 'express';
-import {oneblog, createblog, deleteblog, updateblog, wholeblog} from "../controller/blog";
+import {oneblog, createblog, deleteblog, updateblog, wholeblog, like} from "../controller/blog";
 // import { createcomment, deletecomment, getWholeComment} from "../controller/comment"
 import authenticate from '../middleware/authenticate';
 import blogValidation from '../validation/blog';
@@ -29,6 +29,7 @@ router.get("/blogs/:id", oneblog);
 router.patch("/blogs/:id",updateblog );
 
 router.delete("/blogs/:id", deleteblog);
+router.post("/blogs/:id/like", like);
 
 
 export default router;

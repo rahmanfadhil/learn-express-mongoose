@@ -2,6 +2,9 @@ import dotenv from 'dotenv';
 import swaggerDoc from './swagger.json';
 import blog from './blog';
 import comment from './comments';
+import likes from './like';
+import login from './login';
+import user from './users';
 
 const defaults = swaggerDoc.paths;
 
@@ -11,7 +14,10 @@ dotenv.config();
 const paths = {
   ...defaults,
   ...blog,
-  ...comment
+  ...comment,
+  ...likes,
+  ...login,
+  ...user
 };
 
 const swaggerDocs = {

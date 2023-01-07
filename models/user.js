@@ -7,9 +7,9 @@ const schema = Schema({
   },
   email:{
     type:String,
-    
-    
-    
+  },
+  browserId:{
+    type:String,
   },
   password:{
     type:String,

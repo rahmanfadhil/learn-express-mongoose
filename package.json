@@ -4,7 +4,8 @@
   "description": "This is the source code of [my tutorial](https://rahmanfadhil.com/express-rest-api/)",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -r esm index.js"
+    "start": "nodemon -r esm index.js",
+    "test": "jest"
   },
   "keywords": [],
   "author": "Rahman Fadhil <rhmnfadhil@gmail.com> (https://rahmanfadhil.com/)",

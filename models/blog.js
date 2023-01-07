@@ -5,7 +5,7 @@ const blogschema = Schema({
   description :String,
   content: String,
   image: Object,
-  like:Array,
+  likes:[{type:Schema.Types.ObjectId, ref:'Users'}],
   comments:[{type:Schema.Types.ObjectId, ref:'comment'}],
 });
 
