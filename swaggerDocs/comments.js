@@ -7,6 +7,8 @@ const comment = {
             summary: "This is a display of all comments.",
             responses,
         }
+
+
     },
 
     "/api/v1/comments/{id}" : {
@@ -23,6 +25,22 @@ const comment = {
             responses,
         }
     },
+
+    // "/api/v1/comments/{id}" : {
+    //     post: {
+    //         tags: ["comments"],
+    //         summary: "This is creating a comments.",
+    //         parameters:[
+    //             {
+    //             in: "body",
+    //             name: "name",
+    //             type : String,
+    //             required: true,
+    //             }
+    //         ],
+    //         responses,
+    //     }
+    // },
 
     
 }

@@ -4,7 +4,7 @@ import {createmessage, allmessage} from "../controller/message"
 const router = express.Router();
 
 router.get("/messages",allmessage );
-router.post("/messages/:id",messageValidation, createmessage);
+router.post("/messages",messageValidation, createmessage);
 
 
 export default router;

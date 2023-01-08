@@ -1,26 +1,38 @@
 import request from 'supertest';
 import app from '../index';
+const user = {
+    role: "admin",
+    _id: "63ad1b3c319af319781a8c9f",
+    names: "clement",
+    email: "clementhunk@gmail.com",
+    password: "clement123",
+   
+}
 
-const users = [
-    { email:'isingizwecla@gmail.com', name: 'Clara' , role:'user'},
-    { email:'clementhunk@gmail.com', name: 'clement' , role:'admin'},
+describe('Test the users endpoint', () => {
     
-  ];
-  
-  app.get('/api/v1/user', (req, res) => {
-    res.status(200).json(users);
-  })
-
-  app.get('/users/:id', (req, res) => {
-    const user = users.find(user => user.id === parseInt(req.params.id));
-    if (user) {
-      res.status(200).json(user);
-    } else {
-      res.status(404).json({
-        status: 'error',
-        message: 'User not found',
+      test('It should create new user', async () => {
+        const response = await request(app)
+          .post('/api/v1/users')
+          .send(user);
+        expect(response.statusCode).toBe(201);
       });
-    }
+    
+  test('It should return a list of users', async () => {
+    const response = await request(app).get('/api/v1/users');
+    expect(response.statusCode).toBe(200);
   });
-  
+
+  test('It should return a single user', async () => {
+    const response = await request(app).get('/api/v1/users/names');
+    expect(response.statusCode).toBe(200);
+   
+  });
+
+   test('It should return an error for a non-existent user', async () => {
+    const response = await request(app).get('/api/v1/users/999');
+    expect(response.statusCode).toBe(404);
+  });
+
+});
   

@@ -43,3 +43,8 @@ export async function deletecomment  (req, res)  {
     const comments = await comment.find({blogId: req.params.id})
     res.send(comments)
   }
+
+  export async function OneComment(req, res){
+    const comments = await comment.findById(req.params.id)
+    res.send(comments)
+  }

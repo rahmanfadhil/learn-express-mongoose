@@ -4,8 +4,11 @@ import user from "../models/user"
 export async function oneuser  (req, res){
   try {
     const users = await user.findOne({ _id: req.params.id });
+    if(!users){
+      throw("user not found")
+    }
     res.send(users);
-  } catch {
+  } catch(e) {
     res.status(404);
     res.send({ error: "user doesn't exist!" });
   }
