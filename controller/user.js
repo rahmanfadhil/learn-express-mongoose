@@ -5,12 +5,13 @@ export async function oneuser  (req, res){
   try {
     const users = await user.findOne({ _id: req.params.id });
     if(!users){
-      throw("user not found")
+       res.status(404);
+    res.send({ error: "user doesn't exist!" });
     }
     res.send(users);
-  } catch(e) {
-    res.status(404);
-    res.send({ error: "user doesn't exist!" });
+  } catch(error) {
+    res.status(500);
+    res.send({ error: error.message });
   }
 }
 
