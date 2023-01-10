@@ -5,7 +5,7 @@ import comment from './comments';
 import likes from './like';
 import login from './login';
 import user from './users';
-import message from './message';
+import message from './messagge';
 
 const defaults = swaggerDoc.paths;
 
